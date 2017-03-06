@@ -57,7 +57,7 @@ public class RegistrationProcess extends AsyncTask<String, String, String> {
             myJSON.put("email",email);
             myJSON.put("password",pass);
             myJSON.put("role",role);
-           
+
 
 
             //create a json object of email to check from mongolab
@@ -65,7 +65,7 @@ public class RegistrationProcess extends AsyncTask<String, String, String> {
             EMAILOBJ.put("email",email);
 
             //check if email already exists
-            JSONArray jsonArray = jparser.makeHttpGETRequest(Constants.QUERY_USERS+EMAILOBJ+Constants.API_KEY);
+           /* JSONArray jsonArray = jparser.makeHttpGETRequest(Constants.QUERY_USERS+EMAILOBJ+Constants.API_KEY);
             try {
                 if(jsonArray!=null) {
                     if (jsonArray.getJSONObject(0).get("email").equals(email)) {
@@ -76,7 +76,7 @@ public class RegistrationProcess extends AsyncTask<String, String, String> {
                 }
             }catch(JSONException js){
                 js.printStackTrace();
-            }
+            }*/
 
                 JSONObject json = jparser.makeHttpPOSTRequest(Constants.USERS_URL, myJSON);
                 Log.e("JSON IS = ", json.toString());

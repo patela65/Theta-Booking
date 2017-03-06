@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Select Gender"
+            android:text="Select Role"
             android:id="@+id/textView5"
              />
 
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:id="@+id/genderGrp"
+            android:id="@+id/roleGrp"
             android:layout_marginTop="5dp">
 
             <RadioButton

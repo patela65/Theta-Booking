@@ -27,8 +27,8 @@ public class SignupActivity extends Activity {
     private RegistrationProcess create;
     private EditText nameEt,emailEt,passEt;
     private TextView loginTv;
-    private RadioGroup genderRadioGrp;
-    private RadioButton genderSelectedBtn;
+    private RadioGroup roleRadioGrp;
+    private RadioButton roleSelectedBtn;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class SignupActivity extends Activity {
         emailEt = (EditText)findViewById(R.id.emailEt);
         passEt  = (EditText)findViewById(R.id.passEt);
         loginTv = (TextView)findViewById(R.id.login_linkTv);
-        genderRadioGrp = (RadioGroup)findViewById(R.id.genderGrp);
+        roleRadioGrp = (RadioGroup)findViewById(R.id.roleGrp);
 
     }
 
@@ -65,10 +65,10 @@ public class SignupActivity extends Activity {
         String name       = nameEt.getText().toString();  //get name
         String email      = emailEt.getText().toString(); //get email
         String password   = passEt.getText().toString();  // get pass
-        int selectedBtnId = genderRadioGrp.getCheckedRadioButtonId();
-        genderSelectedBtn = (RadioButton)findViewById(selectedBtnId);
+        int selectedBtnId = roleRadioGrp.getCheckedRadioButtonId();
+        roleSelectedBtn = (RadioButton)findViewById(selectedBtnId);
 
-        String gender   = genderSelectedBtn.getText().toString(); //get gender
+        String role   = roleSelectedBtn.getText().toString(); //get role
 
         if (!validate(name,email,password)) { //check valid data
             onSignupFailed(); //show error
@@ -77,7 +77,7 @@ public class SignupActivity extends Activity {
 
         try {
             create = new RegistrationProcess(SignupActivity.this, name,
-                    email, password, gender);
+                    email, password, role);
             create.execute(); //start a registration process in background
 
         }catch(Exception e){
